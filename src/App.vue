@@ -1,5 +1,5 @@
 <script >
-
+import ButtonInput from './components/ButtonInput.vue';
 </script>
 
 <template>
@@ -12,7 +12,7 @@
 	</header>
 
 	<div class="flex h-full w-full justify-between space-x-2 text-gray-300">
-		<button class="btn-primary" symbol="AC" @click="allClear()" />
+		<ButtonInput class="btn-primary" symbol="AC" @click="allClear()" />
 		<button class="btn-primary" symbols="+/-" @click="sign()" />
 		<button class="btn-primary" symbols="%" @click="percentage()" />
 		<button class="btn-operation" symbols="/" @click="division()" />
