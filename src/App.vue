@@ -1,19 +1,48 @@
 <script >
 import ButtonInput from './components/ButtonInput.vue';
+
+
+export default {
+	name: 'App',
+	data() {
+		return {
+			historyOperation: [],
+			currentCalculation: '0',
+			lastOperation: '0'
+		}
+	},
+	methods: {
+		allClear() {
+			this.currentCalculation = '0'
+			this.lastOperation = '0'
+		},
+		doDelete() {
+			console.log(this.currentCalculation)
+			if (this.currentCalculation !== '0') {
+				this.currentCalculation = this.currentCalculation.toString().slice(0, -1)
+			}
+			if (this.currentCalculation = '') {
+				this.currentCalculation = '0'
+			}
+		}
+
+	}
+
+
+
+}
+
+
+
+
+
+
+
 </script>
-
 <template>
-	<header>
-		<img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-		<div class="wrapper">
-
-		</div>
-	</header>
-
 	<div class="flex h-full w-full justify-between space-x-2 text-gray-300">
-		<ButtonInput class="btn-primary" symbol="AC" @click="allClear()" />
-		<button class="btn-primary" symbols="+/-" @click="sign()" />
+		<ButtonInput class="btn-primary" symbols="AC" @click="allClear()" />
+		<button class="btn-primary" symbols="DEL" @click="doDelete()" />
 		<button class="btn-primary" symbols="%" @click="percentage()" />
 		<button class="btn-operation" symbols="/" @click="division()" />
 	</div>
