@@ -25,13 +25,15 @@ max-width: 500px;
 
 .btn-operation, .btn-calculate {
 background-color: orange;
+
 }
 
 .btn-primary {
 background-color: gray
+
 }
 
 .btn-number{
-color: white;
+
 background-color: darkgray;
 }

@@ -18,6 +18,7 @@ button {
 	width: 100px;
 	padding: 10px;
 	font-size: 16pt;
-	border: black
+	border: black;
+	color: white;
 }
 </style>
