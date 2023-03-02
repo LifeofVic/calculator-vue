@@ -1,8 +1,37 @@
 @import './base.css';
 
 #app {
-  min-width: 100vw;
-  padding: 2rem;
+margin-top: 100px;
+margin-left: 100px;
+min-width: 100vw;
+padding: 2rem;
 align-items: center;
 text-align: left;
+}
+
+.row-1{
+width: 100%;
+flex-direction: row;
+overflow-wrap: normal;
+}
+
+.btn-calculate{
+width: 40%;
+}
+
+.container{
+max-width: 500px;
+}
+
+.btn-operation, .btn-calculate {
+background-color: orange;
+}
+
+.btn-primary {
+background-color: gray
+}
+
+.btn-number{
+color: white;
+background-color: darkgray;
 }
