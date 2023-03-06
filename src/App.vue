@@ -8,7 +8,9 @@ export default {
 		return {
 			historyOperation: [],
 			currentCalculation: "0",
-			lastOperation: "0"
+			lastOperation: "0",
+			firstValue: [],
+			secondValue: [],
 		};
 	},
 	methods: {
@@ -24,6 +26,14 @@ export default {
 			if (this.currentCalculation = "") {
 				this.currentCalculation = "0";
 			}
+		},
+		inputValue(Number) {
+			if (this.lastOperation == '0') {
+				this.firstValue += Number
+			}
+			if (this.lastOperation == '/' || 'X' || '-' || '+') {
+				this.secondValue += Number
+			}
 		}
 	},
 	components: { ButtonInput, CalcResult }
@@ -33,7 +43,9 @@ export default {
 
 <template>
 	<div>
-		<CalcResult></CalcResult>
+		<p>first Number: {{ firstValue }}</p>
+		<p>operation: {{ lastOperation }}</p>
+		<p>Second Number: {{ secondValue }}</p>
 	</div>
 
 	<div class="container">
