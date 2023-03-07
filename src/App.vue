@@ -17,6 +17,9 @@ export default {
 		allClear() {
 			this.currentCalculation = "0";
 			this.lastOperation = "0";
+			this.firstValue = [];
+			this.secondValue = []
+				;
 		},
 		doDelete() {
 			console.log(this.currentCalculation);
@@ -31,9 +34,12 @@ export default {
 			if (this.lastOperation == '0') {
 				this.firstValue += Number
 			}
-			if (this.lastOperation == '/' || 'X' || '-' || '+') {
+			else if (this.lastOperation == '/' || 'X' || '-' || '+') {
 				this.secondValue += Number
 			}
+		},
+		division() {
+			this.lastOperation = '/'
 		}
 	},
 	components: { ButtonInput, CalcResult }
