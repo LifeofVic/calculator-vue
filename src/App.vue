@@ -7,7 +7,7 @@ export default {
 	data() {
 		return {
 			historyOperation: [],
-			currentCalculation: "0",
+			result: [],
 			lastOperation: "0",
 			firstValue: [],
 			secondValue: [],
@@ -15,7 +15,7 @@ export default {
 	},
 	methods: {
 		allClear() {
-			this.currentCalculation = "0";
+			this.result = [];
 			this.lastOperation = "0";
 			this.firstValue = [];
 			this.secondValue = []
@@ -32,14 +32,38 @@ export default {
 		},
 		inputValue(Number) {
 			if (this.lastOperation == '0') {
-				this.firstValue += Number
+				this.allClear();
+				this.firstValue += Number;
 			}
 			else if (this.lastOperation == '/' || 'X' || '-' || '+') {
-				this.secondValue += Number
+				this.secondValue += Number;
+			}
+			else if (this.result.length != 0) {
+				this.allClear();
+				this.firstValue += Number;
+			}
+		}, calculate() {
+			if (this.lastOperation == '/') {
+				this.result += (Number(this.firstValue) / Number(this.secondValue))
+				this.historyOperation += (Number(this.firstValue) / Number(this.secondValue))
+			}
+			else if (this.lastOperation == 'X') {
+				this.result += (Number(this.firstValue) * Number(this.secondValue))
+				historyOperation.push([this.firstValue, this.lastOperation, this.secondValue, result])
+				// this.historyOperation += [this.firstValue, this.lastOperation, this.secondValue, result[0]]
 			}
 		},
 		division() {
-			this.lastOperation = '/'
+			this.lastOperation = '/';
+		},
+		multiplication() {
+			this.lastOperation = 'X';
+		},
+		subtraction() {
+			this.lastOperation = '-';
+		},
+		addition() {
+			this.lastOperation = '+';
 		}
 	},
 	components: { ButtonInput, CalcResult }
@@ -52,6 +76,8 @@ export default {
 		<p>first Number: {{ firstValue }}</p>
 		<p>operation: {{ lastOperation }}</p>
 		<p>Second Number: {{ secondValue }}</p>
+		<p> result: {{ result }}</p>
+		<p> historyOperation: {{ historyOperation }}</p>
 	</div>
 
 	<div class="container">
