@@ -39,11 +39,19 @@ export default {
 			}
 		}, calculate() {
 			if (this.lastOperation == '/') {
-				this.result += (Number(this.firstValue) / Number(this.secondValue))
-				this.historyOperation += ['test', 'test']
+				this.result += ((this.firstValue) / (this.secondValue))
+				this.historyOperation.push({ firstValue: this.firstValue, operation: this.lastOperation, secondValue: this.secondValue, result: this.result })
 			}
 			else if (this.lastOperation == 'X') {
 				this.result += ((this.firstValue) * (this.secondValue))
+				this.historyOperation.push({ firstValue: this.firstValue, operation: this.lastOperation, secondValue: this.secondValue, result: this.result })
+			}
+			else if (this.lastOperation == '-') {
+				this.result += ((this.firstValue) - (this.secondValue))
+				this.historyOperation.push({ firstValue: this.firstValue, operation: this.lastOperation, secondValue: this.secondValue, result: this.result })
+			}
+			else if (this.lastOperation == '+') {
+				this.result += ((this.firstValue) + (this.secondValue))
 				this.historyOperation.push({ firstValue: this.firstValue, operation: this.lastOperation, secondValue: this.secondValue, result: this.result })
 			}
 		},
