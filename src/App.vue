@@ -9,17 +9,17 @@ export default {
 			historyOperation: [],
 			result: [],
 			lastOperation: "0",
-			firstValue: [],
-			secondValue: [],
+			firstValue: 0,
+			secondValue: 0,
 		};
 	},
 	methods: {
 		allClear() {
-			this.result = [];
-			this.lastOperation = "0";
-			this.firstValue = [];
-			this.secondValue = []
-				;
+			this.result = "";
+			this.lastOperation = "";
+			this.firstValue = "";
+			this.secondValue = "";
+			;
 		},
 		doDelete() {
 			console.log(this.currentCalculation);
@@ -31,26 +31,20 @@ export default {
 			}
 		},
 		inputValue(Number) {
-			if (this.lastOperation == '0') {
-				this.allClear();
-				this.firstValue += Number;
+			if (this.lastOperation == "") {
+				this.firstValue += (Number);
 			}
 			else if (this.lastOperation == '/' || 'X' || '-' || '+') {
 				this.secondValue += Number;
 			}
-			else if (this.result.length != 0) {
-				this.allClear();
-				this.firstValue += Number;
-			}
 		}, calculate() {
 			if (this.lastOperation == '/') {
 				this.result += (Number(this.firstValue) / Number(this.secondValue))
-				this.historyOperation += (Number(this.firstValue) / Number(this.secondValue))
+				this.historyOperation += ['test', 'test']
 			}
 			else if (this.lastOperation == 'X') {
-				this.result += (Number(this.firstValue) * Number(this.secondValue))
-				historyOperation.push([this.firstValue, this.lastOperation, this.secondValue, result])
-				// this.historyOperation += [this.firstValue, this.lastOperation, this.secondValue, result[0]]
+				this.result += ((this.firstValue) * (this.secondValue))
+				this.historyOperation.push({ firstValue: this.firstValue, operation: this.lastOperation, secondValue: this.secondValue, result: this.result })
 			}
 		},
 		division() {
